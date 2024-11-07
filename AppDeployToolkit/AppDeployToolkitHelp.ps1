@@ -82,15 +82,15 @@ Function Show-HelpConsole {
 	
 		$HelpListBox.Items.Add("Variables")
 		$newline = [System.Environment]::NewLine
-		$variablesDescription = $newline+"DESCRIPTION"+$newline+"      Displays a list with the template variables."+$newline+"      For the system variables, please use global PowerShell variables."+$newline
+		$variablesDescription = $newline+"DESCRIPTION"+$newline+"      Displays a list with the template variables."+$newline+"      For the system variables, please use the global PowerShell variables."+$newline
 		$variablesLogFolder = $newline+"VARIABLES LIST"+$newline+$newline+'      $configToolkitLogDir - path to the package log folder. Full path could be checked in AppDeployToolkitConfig.xml.'+$newline
-		$variablesFilesFoler = $newline+'      $dirSource - path for the Source folder.'+$newline
+		$variablesFilesFoler = $newline+'      $dirSource - path for the Source folder.'+$newline+$newline+'      $configWelcomePromptCustomMessage - the variable is set the custom text for the "Show-InstallationWelcome" function.'+$newline
 		$VariablesText = $variablesDescription+$variablesLogFolder+$variablesFilesFoler+$variablesSupportFilesFoler+$variablesPackageName+$variablesDetectionRegKey
 
 		
 		$HelpListBox.Items.Add('Copy files / folder to all users')
 		$newline = [System.Environment]::NewLine
-		$AllUsersDescription = $newline+"DESCRIPTION"+$newline+"      PowerShell method to copy / remove files or foldes fore all users and every new user."+$newline#+"      For the system variables, please, use global PowerShell variables."+$newline
+		$AllUsersDescription = $newline+"DESCRIPTION"+$newline+"      PowerShell method to copy / remove files or foldes for all users and every new user."+$newline#+"      For the system variables, please, use global PowerShell variables."+$newline
 		$codepart3 = '           Copy-File -Path "$dirSource\settings.json" -Destination "$_\AppData\Roaming\StorageExplorer\settings.json"'+$newline+'      }'
 		$codepart2= '           New-Folder -Path "$_\AppData\Roaming\StorageExplorer"'
 		$AllUsersLogFolder = $newline+"EXAMPLE"+$newline+$newline+'      Get-ChildItem "${Env:SystemDrive}\Users" -Directory -Force -Exclude "All Users", "Public", "Default User" | ForEach-Object {'+$newline+$codepart2+$newline+$codepart3

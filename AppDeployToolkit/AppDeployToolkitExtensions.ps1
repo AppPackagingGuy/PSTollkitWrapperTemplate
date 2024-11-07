@@ -41,7 +41,7 @@ Function Set-ARPSettings {
 .SYNOPSIS
 	Add properties for the "Programs and Features" entries.
 .DESCRIPTION
-	Add ARPNOMODIFY=1,ARPNOREMOVE=1,APRNOREOAIR=1 to registry key accordig to provided guid and remove URLInfoAbout, URLUpdateInfo, HelpLink
+	Add ARPNOMODIFY=1,ARPNOREMOVE=1,APRNOREOAIR=1 to registry key accordig to provided guid and remove URLInfoAbout, URLUpdateInfo, HelpLink, HelpTelephone, Readme, Comments.
 .PARAMETER Guid
 	Application GUID for which the properties should be set.
 .EXAMPLE
@@ -75,6 +75,9 @@ Function Set-ARPSettings {
                 Remove-RegistryKey -Key "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "URLInfoAbout"
                 Remove-RegistryKey -Key "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "URLUpdateInfo"
                 Remove-RegistryKey -Key "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "HelpLink"
+				Remove-RegistryKey -Key "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "Readme"
+				Remove-RegistryKey -Key "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "Comments"
+				Remove-RegistryKey -Key "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "HelpTelephone"
 			}
 			ElseIf (Test-Path -Path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$Guid") {
 				Write-Log -Message "Registry key is present: [HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$Guid]." -Source ${CmdletName}
@@ -85,6 +88,9 @@ Function Set-ARPSettings {
                 Remove-RegistryKey -Key "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "URLInfoAbout"
                 Remove-RegistryKey -Key "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "URLUpdateInfo"
                 Remove-RegistryKey -Key "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "HelpLink"
+				Remove-RegistryKey -Key "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "Readme"
+				Remove-RegistryKey -Key "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "Comments"
+				Remove-RegistryKey -Key "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$Guid" -Name "HelpTelephone"
 			}
 			Else {Write-Log -Message "$Guid has not been found." -Source ${CmdletName}}
 
