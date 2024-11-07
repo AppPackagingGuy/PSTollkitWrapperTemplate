@@ -21,4 +21,4 @@ What was changed:
 8. Added the creation of a package detection key in 'HKLM:\SOFTWARE\InstalledSoftwarePackages' during package installation and its removal during uninstallation.
 9. Updated examples in the Help console.
 10. The "Show-InstallationWelcome" function automatically displays a message about installation or uninstallation based on the deployment type.
-11. Added AppLogo.ico to set the SCCM Application Icon
+11. Added AppLogo.ico to set the Intune or SCCM Application Icon during the packge import.
